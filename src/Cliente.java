@@ -14,4 +14,5 @@ public class Cliente extends Usuario {
 	public void setTelefone(String telefone){
 		this.telefone = telefone;
 	}
+	
 }
