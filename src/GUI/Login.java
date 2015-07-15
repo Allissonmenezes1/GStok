@@ -1,3 +1,5 @@
+package GUI;
+
 
 public class Login extends javax.swing.JFrame {
 
@@ -92,9 +94,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(60, 60, 60))
         );
 
-        jLabel1.getAccessibleContext().setAccessibleName("GStok");
         login.getAccessibleContext().setAccessibleName("login");
-        ok.getAccessibleContext().setAccessibleName("OK");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
