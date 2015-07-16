@@ -208,7 +208,9 @@ public class CadastrarProduto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
-        // TODO add your handling code here:
+        HomeGerente home = new HomeGerente();
+        home.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_voltarButtonActionPerformed
 
     /**

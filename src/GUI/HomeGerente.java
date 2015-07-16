@@ -17,12 +17,10 @@ public class HomeGerente extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         cadastroProdutoButton = new javax.swing.JButton();
         vendaButton = new javax.swing.JButton();
         cadastroFuncionarioButton = new javax.swing.JButton();
-        modificarProdutoButton = new javax.swing.JButton();
         relatóriosButton = new javax.swing.JButton();
         sair = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -51,12 +49,8 @@ public class HomeGerente extends javax.swing.JFrame {
         jLabel4.setText("Vender Produto");
         jLabel4.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel5.setText("Modificar Produto");
-        jLabel5.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
-
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel6.setText("Relatórios de Venda");
+        jLabel6.setText("Relatórios de Vendas");
         jLabel6.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
 
         cadastroProdutoButton.setText("ok");
@@ -77,13 +71,6 @@ public class HomeGerente extends javax.swing.JFrame {
         cadastroFuncionarioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadastroFuncionarioButtonActionPerformed(evt);
-            }
-        });
-
-        modificarProdutoButton.setText("ok");
-        modificarProdutoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificarProdutoButtonActionPerformed(evt);
             }
         });
 
@@ -123,6 +110,11 @@ public class HomeGerente extends javax.swing.JFrame {
         jLabel9.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
 
         cadastrarMarcaButton.setText("ok");
+        cadastrarMarcaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarMarcaButtonActionPerformed(evt);
+            }
+        });
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel10.setText("Cadastrar Categoria");
@@ -140,47 +132,45 @@ public class HomeGerente extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(49, 49, 49)
-                .addComponent(sair))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel10))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel9))
+                        .addGap(72, 72, 72)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(72, 72, 72)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cadastroProdutoButton)
-                                    .addComponent(cadastroFuncionarioButton)
-                                    .addComponent(cadastroClienteButton)
-                                    .addComponent(cadastrarCategoriaButton)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(73, 73, 73)
-                                .addComponent(buscaProdutoButton))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(72, 72, 72)
-                                .addComponent(cadastrarMarcaButton))))
+                            .addComponent(cadastroProdutoButton)
+                            .addComponent(cadastroFuncionarioButton)
+                            .addComponent(cadastroClienteButton)))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(buscaProdutoButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(cadastrarCategoriaButton)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(49, 49, 49)
+                        .addComponent(sair))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel4))
                         .addGap(72, 72, 72)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(vendaButton)
-                            .addComponent(modificarProdutoButton)
+                            .addComponent(cadastrarMarcaButton)
                             .addComponent(relatóriosButton))
-                        .addGap(1, 1, 1)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(75, 75, 75))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,27 +196,23 @@ public class HomeGerente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cadastroFuncionarioButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(cadastrarCategoriaButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(cadastrarMarcaButton))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(vendaButton))
-                .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(modificarProdutoButton))
-                .addGap(14, 14, 14)
+                    .addComponent(cadastrarMarcaButton)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(vendaButton)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(relatóriosButton))
-                .addGap(21, 21, 21))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
@@ -248,12 +234,6 @@ public class HomeGerente extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_cadastroFuncionarioButtonActionPerformed
 
-    private void modificarProdutoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarProdutoButtonActionPerformed
-        ModificarProduto modificar = new ModificarProduto();
-        modificar.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_modificarProdutoButtonActionPerformed
-
     private void relatóriosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relatóriosButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_relatóriosButtonActionPerformed
@@ -265,9 +245,10 @@ public class HomeGerente extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastroClienteButtonActionPerformed
 
     private void buscaProdutoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaProdutoButtonActionPerformed
-        String marca = null;
-        marca = JOptionPane.showInputDialog("Informe o nome da marca");
-        //CHAMAR FUNÇÃO PARA CADASTRO DE MARCA
+        ConsultarProduto consulta = new ConsultarProduto();
+        consulta.setVisible(true);
+        this.setVisible(false);
+        
     }//GEN-LAST:event_buscaProdutoButtonActionPerformed
 
     private void cadastrarCategoriaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCategoriaButtonActionPerformed
@@ -275,6 +256,12 @@ public class HomeGerente extends javax.swing.JFrame {
         categoria = JOptionPane.showInputDialog("Informe nova categoria");
         //CHAMAR FUNÇÃO PARA CADASTRO DE CATEGORIA
     }//GEN-LAST:event_cadastrarCategoriaButtonActionPerformed
+
+    private void cadastrarMarcaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarMarcaButtonActionPerformed
+       String marca = null;
+       marca = JOptionPane.showInputDialog("Informe o nome da marca");
+       //CHAMAR FUNÇÃO PARA CADASTRO DE MARCA
+    }//GEN-LAST:event_cadastrarMarcaButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -323,12 +310,10 @@ public class HomeGerente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JButton modificarProdutoButton;
     private javax.swing.JButton relatóriosButton;
     private javax.swing.JButton sair;
     private javax.swing.JButton vendaButton;

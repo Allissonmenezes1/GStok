@@ -134,7 +134,9 @@ public class CadastrarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_nomeActionPerformed
 
     private void voltarButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButton1ActionPerformed
-        // TODO add your handling code here:
+        HomeGerente home = new HomeGerente();
+        home.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_voltarButton1ActionPerformed
 
     /**
