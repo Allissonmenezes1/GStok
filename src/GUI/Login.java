@@ -38,11 +38,6 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setText("Senha:");
 
         login.setName("login"); // NOI18N
-        login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginActionPerformed(evt);
-            }
-        });
 
         ok.setText("OK");
         ok.addActionListener(new java.awt.event.ActionListener() {
@@ -52,6 +47,11 @@ public class Login extends javax.swing.JFrame {
         });
 
         senha.setText("jPasswordField1");
+        senha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                senhaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,15 +99,15 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-        
-    }//GEN-LAST:event_loginActionPerformed
-
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
        HomeFuncionario home = new HomeFuncionario();
        home.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_okActionPerformed
+
+    private void senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_senhaActionPerformed
 
     
     public static void main(String args[]) {
