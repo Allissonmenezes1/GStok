@@ -29,23 +29,23 @@ public class CadastrarVenda extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        descricaoTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        codBarrasTextField = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jTextField8 = new javax.swing.JTextField();
+        cancelaButton = new javax.swing.JButton();
+        finalizaButton = new javax.swing.JButton();
+        adicionarProdutoButton = new javax.swing.JButton();
+        totalVendaTextField = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        notaFiscalTable = new javax.swing.JTable();
         jLabel10 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        valorUnitarioTextField = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        subtotalTextField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,10 +56,10 @@ public class CadastrarVenda extends javax.swing.JFrame {
         jLabel3.setText("Descrição:");
         jLabel3.setOpaque(true);
 
-        jTextField2.setEditable(false);
-        jTextField2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jTextField2.setText("jTextField2");
-        jTextField2.setFocusable(false);
+        descricaoTextField.setEditable(false);
+        descricaoTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        descricaoTextField.setText("jTextField2");
+        descricaoTextField.setFocusable(false);
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel5.setText("Total:");
@@ -67,11 +67,11 @@ public class CadastrarVenda extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setText("Cód. Barras:");
 
-        jTextField6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jTextField6.setText("1234567890123");
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        codBarrasTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        codBarrasTextField.setText("1234567890123");
+        codBarrasTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                codBarrasTextFieldActionPerformed(evt);
             }
         });
 
@@ -88,42 +88,42 @@ public class CadastrarVenda extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Cancelar Venda");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        cancelaButton.setText("Cancelar Venda");
+        cancelaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                cancelaButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Finalizar Venda");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        finalizaButton.setText("Finalizar Venda");
+        finalizaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                finalizaButtonActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton3.setText("Adicionar Produto");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        adicionarProdutoButton.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        adicionarProdutoButton.setText("Adicionar Produto");
+        adicionarProdutoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                adicionarProdutoButtonActionPerformed(evt);
             }
         });
 
-        jTextField8.setEditable(false);
-        jTextField8.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jTextField8.setText("R$ 20000,00");
-        jTextField8.setFocusable(false);
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        totalVendaTextField.setEditable(false);
+        totalVendaTextField.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        totalVendaTextField.setText("R$ 20000,00");
+        totalVendaTextField.setFocusable(false);
+        totalVendaTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                totalVendaTextFieldActionPerformed(evt);
             }
         });
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel9.setText("Comprovante de Venda");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        notaFiscalTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -143,32 +143,36 @@ public class CadastrarVenda extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jTable1.setAutoscrolls(false);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane2.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(100);
-            jTable1.getColumnModel().getColumn(1).setMinWidth(200);
-            jTable1.getColumnModel().getColumn(2).setMinWidth(228);
-            jTable1.getColumnModel().getColumn(2).setMaxWidth(228);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(50);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setPreferredWidth(70);
+        notaFiscalTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        notaFiscalTable.setAutoscrolls(false);
+        notaFiscalTable.setFocusable(false);
+        notaFiscalTable.setRequestFocusEnabled(false);
+        notaFiscalTable.setShowVerticalLines(false);
+        notaFiscalTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane2.setViewportView(notaFiscalTable);
+        if (notaFiscalTable.getColumnModel().getColumnCount() > 0) {
+            notaFiscalTable.getColumnModel().getColumn(0).setResizable(false);
+            notaFiscalTable.getColumnModel().getColumn(0).setPreferredWidth(100);
+            notaFiscalTable.getColumnModel().getColumn(1).setMinWidth(200);
+            notaFiscalTable.getColumnModel().getColumn(2).setMinWidth(228);
+            notaFiscalTable.getColumnModel().getColumn(2).setMaxWidth(228);
+            notaFiscalTable.getColumnModel().getColumn(3).setResizable(false);
+            notaFiscalTable.getColumnModel().getColumn(3).setPreferredWidth(50);
+            notaFiscalTable.getColumnModel().getColumn(4).setResizable(false);
+            notaFiscalTable.getColumnModel().getColumn(4).setPreferredWidth(70);
         }
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Val. Unitário");
 
-        jTextField9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField9.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField9.setText("R$ 100");
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        valorUnitarioTextField.setEditable(false);
+        valorUnitarioTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        valorUnitarioTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        valorUnitarioTextField.setText("R$ 100");
+        valorUnitarioTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                valorUnitarioTextFieldActionPerformed(evt);
             }
         });
 
@@ -176,12 +180,13 @@ public class CadastrarVenda extends javax.swing.JFrame {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Subtotal");
 
-        jTextField10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jTextField10.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField10.setText("R$ 10000,00");
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+        subtotalTextField.setEditable(false);
+        subtotalTextField.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        subtotalTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        subtotalTextField.setText("R$ 10000,00");
+        subtotalTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
+                subtotalTextFieldActionPerformed(evt);
             }
         });
 
@@ -197,7 +202,7 @@ public class CadastrarVenda extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(codBarrasTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(34, 34, 34)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -206,19 +211,19 @@ public class CadastrarVenda extends javax.swing.JFrame {
                                         .addGap(0, 0, Short.MAX_VALUE)
                                         .addComponent(jLabel1)
                                         .addGap(323, 323, 323))
-                                    .addComponent(jTextField2)))
+                                    .addComponent(descricaoTextField)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField10)
+                                    .addComponent(subtotalTextField)
                                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jTextField9)
+                                        .addComponent(adicionarProdutoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(valorUnitarioTextField)
                                     .addComponent(jTextField7)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel9)
@@ -226,13 +231,13 @@ public class CadastrarVenda extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addGap(79, 79, 79)
-                        .addComponent(jButton1)
+                        .addComponent(cancelaButton)
                         .addGap(118, 118, 118)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(totalVendaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addComponent(finalizaButton)
                         .addGap(91, 91, 91))))
         );
         layout.setVerticalGroup(
@@ -242,8 +247,8 @@ public class CadastrarVenda extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(descricaoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(codBarrasTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -257,58 +262,58 @@ public class CadastrarVenda extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(valorUnitarioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(13, 13, 13)
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(subtotalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(adicionarProdutoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField8)
+                        .addComponent(totalVendaTextField)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cancelaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(finalizaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void codBarrasTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codBarrasTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_codBarrasTextFieldActionPerformed
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void cancelaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelaButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_cancelaButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void finalizaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizaButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_finalizaButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void adicionarProdutoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adicionarProdutoButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_adicionarProdutoButtonActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void totalVendaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalVendaTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_totalVendaTextFieldActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void valorUnitarioTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valorUnitarioTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_valorUnitarioTextFieldActionPerformed
 
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+    private void subtotalTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subtotalTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
+    }//GEN-LAST:event_subtotalTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -346,9 +351,11 @@ public class CadastrarVenda extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton adicionarProdutoButton;
+    private javax.swing.JButton cancelaButton;
+    private javax.swing.JTextField codBarrasTextField;
+    private javax.swing.JTextField descricaoTextField;
+    private javax.swing.JButton finalizaButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -358,12 +365,10 @@ public class CadastrarVenda extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable notaFiscalTable;
+    private javax.swing.JTextField subtotalTextField;
+    private javax.swing.JTextField totalVendaTextField;
+    private javax.swing.JTextField valorUnitarioTextField;
     // End of variables declaration//GEN-END:variables
 }
