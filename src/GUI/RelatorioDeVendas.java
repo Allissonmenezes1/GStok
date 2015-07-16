@@ -70,6 +70,7 @@ public class RelatorioDeVendas extends javax.swing.JFrame {
         maisVendidosTable.setFocusable(false);
         maisVendidosTable.setPreferredSize(new java.awt.Dimension(705, 80));
         maisVendidosTable.setRequestFocusEnabled(false);
+        maisVendidosTable.setRowHeight(20);
         maisVendidosTable.setShowVerticalLines(false);
         maisVendidosTable.getTableHeader().setReorderingAllowed(false);
         maisVendidosScrollPane.setViewportView(maisVendidosTable);
@@ -126,6 +127,7 @@ public class RelatorioDeVendas extends javax.swing.JFrame {
         maioresComprasTable.setFocusable(false);
         maioresComprasTable.setPreferredSize(new java.awt.Dimension(705, 80));
         maioresComprasTable.setRequestFocusEnabled(false);
+        maioresComprasTable.setRowHeight(20);
         maioresComprasTable.setShowVerticalLines(false);
         maioresComprasTable.getTableHeader().setReorderingAllowed(false);
         maioresComprasScrollPane.setViewportView(maioresComprasTable);
@@ -180,6 +182,7 @@ public class RelatorioDeVendas extends javax.swing.JFrame {
         maioresClientesTable.setFocusable(false);
         maioresClientesTable.setPreferredSize(new java.awt.Dimension(705, 80));
         maioresClientesTable.setRequestFocusEnabled(false);
+        maioresClientesTable.setRowHeight(20);
         maioresClientesTable.setShowVerticalLines(false);
         maioresClientesTable.getTableHeader().setReorderingAllowed(false);
         maioresClientesScrollPane.setViewportView(maioresClientesTable);

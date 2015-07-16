@@ -147,6 +147,7 @@ public class CadastrarVenda extends javax.swing.JFrame {
         notaFiscalTable.setAutoscrolls(false);
         notaFiscalTable.setFocusable(false);
         notaFiscalTable.setRequestFocusEnabled(false);
+        notaFiscalTable.setRowHeight(20);
         notaFiscalTable.setShowVerticalLines(false);
         notaFiscalTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(notaFiscalTable);
