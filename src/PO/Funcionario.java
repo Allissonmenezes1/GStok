@@ -1,3 +1,5 @@
+package PO;
+
 
 public class Funcionario extends Usuario {
 	private String senha;

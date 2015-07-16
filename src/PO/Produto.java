@@ -1,3 +1,5 @@
+package PO;
+
 
 public class Produto {
 	private int codBarras, quantidade, limiteMax, limiteMin; 

@@ -1,3 +1,5 @@
+package PO;
+
 
 public class Usuario {
 		private int cpf;
