@@ -11,6 +11,12 @@ public class Funcionario extends Usuario {
 		this.gerente = false;
 	}
 	
+        public Funcionario(Funcionario funcionario){
+		super(funcionario.getCPF(), funcionario.getNome());
+		this.senha = funcionario.getSenha();
+		this.gerente = funcionario.getGerente();
+	}
+        
 	public boolean getGerente(){
 		return this.gerente;
 	}
