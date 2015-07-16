@@ -253,13 +253,13 @@ public class HomeGerente extends javax.swing.JFrame {
 
     private void cadastrarCategoriaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCategoriaButtonActionPerformed
         String categoria = null;
-        categoria = JOptionPane.showInputDialog("Informe nova categoria");
+        categoria = JOptionPane.showInputDialog(this, "Informe nova categoria");
         //CHAMAR FUNÇÃO PARA CADASTRO DE CATEGORIA
     }//GEN-LAST:event_cadastrarCategoriaButtonActionPerformed
 
     private void cadastrarMarcaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarMarcaButtonActionPerformed
        String marca = null;
-       marca = JOptionPane.showInputDialog("Informe o nome da marca");
+       marca = JOptionPane.showInputDialog(this, "Informe o nome da marca");
        //CHAMAR FUNÇÃO PARA CADASTRO DE MARCA
     }//GEN-LAST:event_cadastrarMarcaButtonActionPerformed
 
