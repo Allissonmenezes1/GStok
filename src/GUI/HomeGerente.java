@@ -267,15 +267,19 @@ public class HomeGerente extends javax.swing.JFrame {
         categoria = JOptionPane.showInputDialog(this, "Informe nova categoria");
         ProdutoBO p = new ProdutoBO();
         if(p.cadastrarCategoria(categoria))
-            JOptionPane.showMessageDialog(this, "Marca cadastrada!");
+            JOptionPane.showMessageDialog(this, "Categoria cadastrada!");
         else
-            JOptionPane.showMessageDialog(this,"Erro no cadastro", "", ERROR);
+            JOptionPane.showMessageDialog(this,"Erro no cadastro", "", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_cadastrarCategoriaButtonActionPerformed
 
     private void cadastrarMarcaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarMarcaButtonActionPerformed
        String marca = null;
        marca = JOptionPane.showInputDialog(this, "Informe o nome da marca");
-       //CHAMAR FUNÇÃO PARA CADASTRO DE MARCA
+       ProdutoBO p = new ProdutoBO();
+        if(p.cadastrarMarca(marca))
+            JOptionPane.showMessageDialog(this, "Marca cadastrada!");
+        else
+            JOptionPane.showMessageDialog(this,"Erro no cadastro", "", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_cadastrarMarcaButtonActionPerformed
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed

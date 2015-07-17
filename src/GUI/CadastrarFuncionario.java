@@ -134,7 +134,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         if(f.cadastrarFuncionario(func))
             JOptionPane.showMessageDialog(this, "Funcionário cadastrado");
         else
-            JOptionPane.showMessageDialog(this, "Funcionário não cadastrado","ERRO",ERROR);
+            JOptionPane.showMessageDialog(this, "Funcionário não cadastrado","ERRO",JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_okButtonActionPerformed
 
     private void voltarButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButton1ActionPerformed
