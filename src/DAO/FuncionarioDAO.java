@@ -12,7 +12,7 @@ public class FuncionarioDAO {
         String sql = "INSERT INTO FUNCIONARIO(CPF, NOME, SENHA, GERENTE) VALUES (?, ?, ?, ?)";
         try{
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
-            sttm.setInt(1, funcionario.getCPF());
+            sttm.setString(1, funcionario.getCPF());
             sttm.setString(2, funcionario.getNome());
             sttm.setString(3, funcionario.getSenha());
             int gerente = (funcionario.getGerente())? 1 : 0;
@@ -27,18 +27,18 @@ public class FuncionarioDAO {
         }  
     }
     
-    public Funcionario getFuncionario(int cpf){
+    public Funcionario getFuncionario(String cpf){
         Conexao conn = new Conexao();
         String sql = "SELECT * FROM CLIENTE WHERE CPF = ?";
         try{
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
-            sttm.setInt(1, cpf);;
+            sttm.setString(1, cpf);;
             boolean result = sttm.execute();
             if(!result)
                 return null;
             ResultSet rs = sttm.executeQuery();
             rs.next();
-            Funcionario func = new Funcionario(rs.getString("NOME"), rs.getInt("CPF"), rs.getString("SENHA"));
+            Funcionario func = new Funcionario(rs.getString("NOME"), rs.getString("CPF"), rs.getString("SENHA"));
             boolean gerente = (rs.getInt("GERENTE") == 1)? true : false;
             func.setGerente(gerente);
             return func;

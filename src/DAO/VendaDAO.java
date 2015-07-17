@@ -11,7 +11,7 @@ import util.Conexao;
 
 public class VendaDAO {
     
-    public boolean inserirVenda(int codBarras, int cpfFunc, int cpfCliente, int quantidade, int idVenda){
+    public boolean inserirVenda(int codBarras, int cpfFunc, int cpfCliente, int quantidade, String idVenda){
         Conexao conn = new Conexao();
         ProdutoDAO pDAO = new ProdutoDAO();
         String query = "";
@@ -31,7 +31,7 @@ public class VendaDAO {
             query = "INSERT INTO VENDA (ID, ID_PRODUTO, CPF_FUNC, CPF_CLIENTE, QUANTIDADE)"
                     + " VALUES (?, ?, ?, ?, ?)";
             sttm = conn.getConexao().prepareStatement(query);
-            sttm.setInt(1, idVenda);
+            sttm.setString(1, idVenda);
             sttm.setInt(2, idProduto);
             sttm.setInt(3, cpfFunc);
             sttm.setInt(4, cpfCliente);

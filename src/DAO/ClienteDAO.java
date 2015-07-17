@@ -12,7 +12,7 @@ public class ClienteDAO {
         String sql = "INSERT INTO CLIENTE (CPF, NOME, TELEFONE) VALUES (?, ?, ?)";
         try{
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
-            sttm.setInt(1, cliente.getCPF());
+            sttm.setString(1, cliente.getCPF());
             sttm.setString(2, cliente.getNome());
             sttm.setString(3, cliente.getTelefone());
             sttm.execute();
@@ -25,18 +25,18 @@ public class ClienteDAO {
         }
     }
     
-    public Cliente getCliente(int cpf){
+    public Cliente getCliente(String cpf){
         Conexao conn = new Conexao();
         String sql = "SELECT * FROM CLIENTE WHERE CPF = ?";
         try{
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
-            sttm.setInt(1, cpf);;
+            sttm.setString(1, cpf);;
             boolean result = sttm.execute();
             if(!result)
                 return null;
             ResultSet rs = sttm.executeQuery();
             rs.next();
-            Cliente cliente = new Cliente(rs.getString("NOME"), rs.getInt("CPF"), rs.getString("TELEFONE")); 
+            Cliente cliente = new Cliente(rs.getString("NOME"), rs.getString("CPF"), rs.getString("TELEFONE")); 
             return cliente;
         }catch(Exception e){
             e.printStackTrace();

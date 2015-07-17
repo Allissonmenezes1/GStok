@@ -5,7 +5,7 @@ public class Funcionario extends Usuario {
 	private String senha;
 	private boolean gerente;
 	
-	public Funcionario(String nome, int cpf, String senha){
+	public Funcionario(String nome, String cpf, String senha){
 		super(cpf, nome);
 		this.senha = senha;
 		this.gerente = false;

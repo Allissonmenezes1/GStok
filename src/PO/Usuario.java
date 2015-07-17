@@ -2,10 +2,9 @@ package PO;
 
 
 public class Usuario {
-		private int cpf;
-		private String nome;
+		private String nome, cpf;
 		
-		public Usuario(int cpf, String nome){
+		public Usuario(String cpf, String nome){
 			this.cpf = cpf;
 			this.nome = nome;			
 		}
@@ -14,7 +13,7 @@ public class Usuario {
 			return this.nome;
 		}
 		
-		public int getCPF(){
+		public String getCPF(){
 			return this.cpf;
 		}
 }

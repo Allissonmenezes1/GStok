@@ -10,7 +10,7 @@ public class FuncionarioBO {
         f = new FuncionarioDAO();
     }
     
-    public Funcionario login(int cpf, String senha){
+    public Funcionario login(String cpf, String senha){
         
         Funcionario func = f.getFuncionario(cpf);
         
