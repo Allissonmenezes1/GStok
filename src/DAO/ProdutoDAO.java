@@ -8,7 +8,7 @@ import util.Conexao;
 
 public class ProdutoDAO {
     
-    public boolean inserirProduto(Produto produto, int cpfFuncionario){
+    public boolean inserirProduto(Produto produto, String cpfFuncionario){
         Conexao conn = new Conexao();
         String sql = "INSERT INTO PRODUTO (NOME, DESCRICAO, COD_BARRAS, PRECO, COD_CATEGORIA, COD_MARCA, QUANTIDADE, LIMITE_MIN, LIMITE_MAX, CPF_GERENTE)"
                 + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -27,7 +27,7 @@ public class ProdutoDAO {
             sttm.setInt(7, produto.getQuantidade());
             sttm.setInt(8, produto.getLimiteMinimo());
             sttm.setInt(9, produto.getLimiteMaximo());
-            sttm.setInt(10, cpfFuncionario);
+            sttm.setString(10, cpfFuncionario);
             sttm.execute();
             return true;
         }catch(Exception e){

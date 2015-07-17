@@ -13,7 +13,7 @@ public class ProdutoBO {
     }
     
     
-    public boolean cadastrarProduto(Produto produto, int cpfFuncionario){
+    public boolean cadastrarProduto(Produto produto, String cpfFuncionario){
         
         if(p.buscarProduto(produto.getCodBarras()) != null)
             return false;

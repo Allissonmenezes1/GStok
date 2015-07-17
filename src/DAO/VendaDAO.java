@@ -41,16 +41,10 @@ public class VendaDAO {
             query = "UPDATE PRODUTO SET QUANTIDADE = ?";
             sttm = conn.getConexao().prepareStatement(query);
             sttm.setInt(1, (p.getQuantidade() - quantidade) );
-            
-            conn.getConexao().commit();
+            sttm.execute();
             return true;
         }catch(Exception e){
             e.printStackTrace();
-            try {
-                conn.getConexao().rollback();
-            } catch (SQLException ex) {
-                Logger.getLogger(VendaDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
             return false;
         }finally{
             conn.fecharConexao();
