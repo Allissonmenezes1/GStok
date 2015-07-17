@@ -47,4 +47,63 @@ public class VendaDAO {
         }
     }
     
+    public ResultSet maisVendidos(){
+        Conexao conn = null;
+        String sql = "SELECT P.COD_BARRAS, P.NOME, P.DESCRICAO, COUNT(V.ID_PRODUTO) as UNIDADES_VENDIDAS, TRUNCATE(SUM(V.QUANTIDADE*V.PRECO_UNITARIO), 2) as  TOTAL \n"
+           + "FROM VENDA as V INNER JOIN PRODUTO as P ON V.ID_PRODUTO = P.ID GROUP BY (V.ID_PRODUTO) ORDER BY (TOTAL) DESC";
+        try{
+            conn = new Conexao();
+            PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
+            sttm.execute();
+            ResultSet rs = sttm.getResultSet();
+           
+            return rs;
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }finally{
+            conn.fecharConexao();
+        }
+    }
+    
+    public ResultSet maioresCompras(){
+        Conexao conn = null;
+        String sql = "SELECT DATE_FORMAT(V.DATA, \"%d/%m/%Y\") as DATA, F.NOME, SUM(V.QUANTIDADE) as QUANTIDADE, TRUNCATE(SUM(V.QUANTIDADE*V.PRECO_UNITARIO), 2) as TOTAL \n"
+                    + "FROM VENDA as V INNER JOIN FUNCIONARIO as F ON V.CPF_FUNC = F.CPF GROUP BY (V.ID) ORDER BY (TOTAL) DESC";
+        try{
+            conn = new Conexao();
+            PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
+            sttm.execute();
+            ResultSet rs = sttm.getResultSet();
+           
+            return rs;
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }finally{
+            conn.fecharConexao();
+        }
+    }
+    
+    public ResultSet maioresClientes(){
+        Conexao conn = null;
+        String sql = "SELECT C.NOME, COUNT(DISTINCT V.ID) as QUANTIDADE, SUB.TOTAL \n" +
+                    "FROM VENDA as V INNER JOIN CLIENTE as C ON V.CPF_CLIENTE = C.CPF INNER JOIN\n" +
+                    "(SELECT CPF_CLIENTE, TRUNCATE(SUM(PRECO_UNITARIO*QUANTIDADE), 2) AS TOTAL \n" +
+                    "FROM VENDA GROUP BY(CPF_CLIENTE) ORDER BY MONTANTE DESC) as SUB \n" +
+                    "ON V.CPF_CLIENTE = SUB.CPF_CLIENTE GROUP BY(V.CPF_CLIENTE) ORDER BY(SUB.MONTANTE)";
+        try{
+            conn = new Conexao();
+            PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
+            sttm.execute();
+            ResultSet rs = sttm.getResultSet();
+           
+            return rs;
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }finally{
+            conn.fecharConexao();
+        }
+    }
 }
