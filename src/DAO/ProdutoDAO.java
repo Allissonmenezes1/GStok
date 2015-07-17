@@ -38,6 +38,26 @@ public class ProdutoDAO {
         }  
     }
     
+    public boolean alterarProduto(Produto produto){
+        Conexao conn = new Conexao();
+        String sql = "UPDATE PRODUTO SET PRECO = ?, QUANTIDADE = ?, LIMITE_MAX = ?, LIMITE_MIN = ?";
+         try{
+            PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
+            sttm.setDouble(1, produto.getPreco());
+            sttm.setInt(2, produto.getQuantidade());
+            sttm.setInt(3, produto.getLimiteMaximo());
+            sttm.setInt(4, produto.getLimiteMinimo());
+            sttm.execute();
+            return true;
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }finally{
+            conn.fecharConexao();
+        }
+    
+    }
+    
     public Produto buscarProduto(String codBarras){
         Conexao conn = new Conexao();
         String sql = "SELECT P.NOME, P.DESCRICAO, P.COD_BARRAS, P.PRECO, C.DESC_CATEGORIA, M.DESC_MARCA, P.QUANTIDADE, P.LIMITE_MIN, P.LIMITE_MAX "

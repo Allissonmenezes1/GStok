@@ -35,9 +35,10 @@ public class VendaDAO {
             sttm.execute();
             
             Produto p =  pDAO.buscarProduto(codBarras);
-            query = "UPDATE PRODUTO SET QUANTIDADE = ?";
+            query = "UPDATE PRODUTO SET QUANTIDADE = ? WHERE ID = ?";
             sttm = conn.getConexao().prepareStatement(query);
             sttm.setInt(1, (p.getQuantidade() - quantidade) );
+            sttm.setInt(2, idProduto);
             sttm.execute();
             return true;
         }catch(Exception e){
