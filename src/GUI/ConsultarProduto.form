@@ -27,18 +27,8 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="codBarrasTextField" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
@@ -47,12 +37,12 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="nomeProdutoTextField" pref="341" max="32767" attributes="0"/>
+                              <Component id="nomeProdutoTextField" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="descricaoProdutoTextField" pref="317" max="32767" attributes="0"/>
+                              <Component id="descricaoProdutoTextField" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -95,11 +85,17 @@
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="voltarButton1" max="32767" attributes="0"/>
+                                  <Component id="salvarButton" max="32767" attributes="0"/>
                                   <Component id="limiteMinProdutoTextField" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="codBarrasTextField" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -152,7 +148,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="voltarButton" alignment="3" max="32767" attributes="0"/>
-                  <Component id="voltarButton1" alignment="3" max="32767" attributes="0"/>
+                  <Component id="salvarButton" alignment="3" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -181,10 +177,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="1234567890123"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="codBarrasTextFieldActionPerformed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="codBarrasTextFieldKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
@@ -202,7 +197,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jTextField2"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -221,7 +215,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jTextField2"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -239,8 +232,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jTextField2"/>
-        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="marcaProdutoTextField">
@@ -249,7 +240,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jTextField2"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -277,7 +267,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jTextField2"/>
         <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
@@ -295,8 +284,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jTextField2"/>
-        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
@@ -313,8 +300,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jTextField2"/>
-        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
@@ -331,8 +316,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="jTextField2"/>
-        <Property name="focusable" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="voltarButton">
@@ -345,12 +328,13 @@
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator1">
     </Component>
-    <Component class="javax.swing.JButton" name="voltarButton1">
+    <Component class="javax.swing.JButton" name="salvarButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salvar Altera&#xe7;&#xf5;es"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="voltarButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salvarButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

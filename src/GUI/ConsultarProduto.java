@@ -5,19 +5,38 @@
  */
 package GUI;
 
+import DAO.ProdutoDAO;
+import PO.Funcionario;
+import PO.Produto;
+
 /**
  *
  * @author alysson
  */
 public class ConsultarProduto extends javax.swing.JFrame {
 
+    private Funcionario func;
     /**
      * Creates new form ConsultarProduto
      */
     public ConsultarProduto() {
         initComponents();
+        
     }
 
+    public void setFuncionario(Funcionario f){
+        this.func = new Funcionario(f);
+        if(!f.getGerente()){
+            quantidadeProdutoTextField.setEditable(false);
+            precoProdutoTextField.setEditable(false);
+            limiteMaxProdutoTextField.setEditable(false);
+            limiteMinProdutoTextField.setEditable(false);
+            quantidadeProdutoTextField.setFocusable(false);
+            precoProdutoTextField.setFocusable(false);
+            limiteMaxProdutoTextField.setFocusable(false);
+            limiteMinProdutoTextField.setFocusable(false);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,7 +67,7 @@ public class ConsultarProduto extends javax.swing.JFrame {
         limiteMinProdutoTextField = new javax.swing.JTextField();
         voltarButton = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        voltarButton1 = new javax.swing.JButton();
+        salvarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,10 +78,9 @@ public class ConsultarProduto extends javax.swing.JFrame {
         jLabel6.setText("Informe Cód. Barras:");
 
         codBarrasTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        codBarrasTextField.setText("1234567890123");
-        codBarrasTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                codBarrasTextFieldActionPerformed(evt);
+        codBarrasTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                codBarrasTextFieldKeyReleased(evt);
             }
         });
 
@@ -72,7 +90,6 @@ public class ConsultarProduto extends javax.swing.JFrame {
 
         nomeProdutoTextField.setEditable(false);
         nomeProdutoTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        nomeProdutoTextField.setText("jTextField2");
         nomeProdutoTextField.setFocusable(false);
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -81,7 +98,6 @@ public class ConsultarProduto extends javax.swing.JFrame {
 
         descricaoProdutoTextField.setEditable(false);
         descricaoProdutoTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        descricaoProdutoTextField.setText("jTextField2");
         descricaoProdutoTextField.setFocusable(false);
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -89,12 +105,9 @@ public class ConsultarProduto extends javax.swing.JFrame {
         jLabel5.setOpaque(true);
 
         precoProdutoTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        precoProdutoTextField.setText("jTextField2");
-        precoProdutoTextField.setFocusable(false);
 
         marcaProdutoTextField.setEditable(false);
         marcaProdutoTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        marcaProdutoTextField.setText("jTextField2");
         marcaProdutoTextField.setFocusable(false);
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -107,7 +120,6 @@ public class ConsultarProduto extends javax.swing.JFrame {
 
         categoriaProdutoTextField.setEditable(false);
         categoriaProdutoTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        categoriaProdutoTextField.setText("jTextField2");
         categoriaProdutoTextField.setFocusable(false);
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -115,24 +127,18 @@ public class ConsultarProduto extends javax.swing.JFrame {
         jLabel9.setOpaque(true);
 
         quantidadeProdutoTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        quantidadeProdutoTextField.setText("jTextField2");
-        quantidadeProdutoTextField.setFocusable(false);
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel10.setText("Lim. Máx");
         jLabel10.setOpaque(true);
 
         limiteMaxProdutoTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        limiteMaxProdutoTextField.setText("jTextField2");
-        limiteMaxProdutoTextField.setFocusable(false);
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel11.setText("Lim. Min");
         jLabel11.setOpaque(true);
 
         limiteMinProdutoTextField.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        limiteMinProdutoTextField.setText("jTextField2");
-        limiteMinProdutoTextField.setFocusable(false);
 
         voltarButton.setText("<--");
         voltarButton.addActionListener(new java.awt.event.ActionListener() {
@@ -141,10 +147,11 @@ public class ConsultarProduto extends javax.swing.JFrame {
             }
         });
 
-        voltarButton1.setText("Salvar Alterações");
-        voltarButton1.addActionListener(new java.awt.event.ActionListener() {
+        salvarButton.setText("Salvar Alterações");
+        salvarButton.setEnabled(false);
+        salvarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                voltarButton1ActionPerformed(evt);
+                salvarButtonActionPerformed(evt);
             }
         });
 
@@ -156,15 +163,8 @@ public class ConsultarProduto extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(codBarrasTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
@@ -172,11 +172,11 @@ public class ConsultarProduto extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nomeProdutoTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE))
+                                .addComponent(nomeProdutoTextField))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(descricaoProdutoTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE))
+                                .addComponent(descricaoProdutoTextField))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -209,8 +209,13 @@ public class ConsultarProduto extends javax.swing.JFrame {
                                         .addComponent(voltarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(192, 192, 192)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(voltarButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(limiteMinProdutoTextField))))))
+                                    .addComponent(salvarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(limiteMinProdutoTextField)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(codBarrasTextField)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -253,16 +258,12 @@ public class ConsultarProduto extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(voltarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(voltarButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(salvarButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void codBarrasTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codBarrasTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_codBarrasTextFieldActionPerformed
 
     private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
         HomeGerente home = new HomeGerente();
@@ -270,9 +271,36 @@ public class ConsultarProduto extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_voltarButtonActionPerformed
 
-    private void voltarButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButton1ActionPerformed
+    private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_voltarButton1ActionPerformed
+    }//GEN-LAST:event_salvarButtonActionPerformed
+
+    private void codBarrasTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codBarrasTextFieldKeyReleased
+        Produto p = new ProdutoDAO().buscarProduto(codBarrasTextField.getText());
+        if(p != null){
+            nomeProdutoTextField.setText(p.getNome());
+            descricaoProdutoTextField.setText(p.getDescricao());
+            marcaProdutoTextField.setText(p.getCodMarca());
+            precoProdutoTextField.setText("R$ "+p.getPreco());
+            categoriaProdutoTextField.setText(p.getCategoria());
+            quantidadeProdutoTextField.setText(Integer.toString(p.getQuantidade()));
+            limiteMaxProdutoTextField.setText(Integer.toString(p.getLimiteMaximo()));
+            limiteMinProdutoTextField.setText(Integer.toString(p.getLimiteMinimo()));
+            salvarButton.setEnabled(true);
+            
+        }
+        else{
+            nomeProdutoTextField.setText("");
+            descricaoProdutoTextField.setText("");
+            marcaProdutoTextField.setText("");
+            precoProdutoTextField.setText("R$ ");
+            categoriaProdutoTextField.setText("");
+            quantidadeProdutoTextField.setText("");
+            limiteMaxProdutoTextField.setText("");
+            limiteMinProdutoTextField.setText("");
+            salvarButton.setEnabled(false);
+        }
+    }//GEN-LAST:event_codBarrasTextFieldKeyReleased
 
     /**
      * @param args the command line arguments
@@ -330,7 +358,7 @@ public class ConsultarProduto extends javax.swing.JFrame {
     private javax.swing.JTextField nomeProdutoTextField;
     private javax.swing.JTextField precoProdutoTextField;
     private javax.swing.JTextField quantidadeProdutoTextField;
+    private javax.swing.JButton salvarButton;
     private javax.swing.JButton voltarButton;
-    private javax.swing.JButton voltarButton1;
     // End of variables declaration//GEN-END:variables
 }
