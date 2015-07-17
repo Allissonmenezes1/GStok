@@ -38,7 +38,7 @@ public class VendaBO {
             
             for(int i = 0; i < produto.size(); i++){
                 verifica = v.inserirVenda(produto.get(i).getCodBarras(), cpfFunc, cpfCliente,
-                        produto.get(i).getQuantidade(), id, conn);
+                        produto.get(i).getQuantidade(), id, produto.get(i).getPreco(), conn);
                 if(!verifica)
                     throw new Exception("Erro ao inserir venda");
             }
