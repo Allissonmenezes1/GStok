@@ -16,16 +16,16 @@ public class Conexao {
     private Connection conn;
     private Savepoint savepoint;
 	
-    public Conexao(){
+    public Conexao() throws ClassNotFoundException, SQLException{
 	this.conn = null;
         this.savepoint = null;
+        Class.forName(DRIVER);
+        this.conn = DriverManager.getConnection(HOST+BANCO, USUARIO, SENHA);
     }
 	
     public Connection getConexao() {
                
         try {
-            Class.forName(DRIVER);
-            this.conn = DriverManager.getConnection(HOST+BANCO, USUARIO, SENHA);
             return this.conn;
         } catch (Exception e) {
             e.printStackTrace();

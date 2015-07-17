@@ -8,8 +8,7 @@ import util.Conexao;
 
 public class VendaDAO {
     
-    public boolean inserirVenda(String codBarras, String cpfFunc, String cpfCliente, int quantidade, String idVenda){
-        Conexao conn = new Conexao();
+    public boolean inserirVenda(String codBarras, String cpfFunc, String cpfCliente, int quantidade, String idVenda, Conexao conn){
         ProdutoDAO pDAO = new ProdutoDAO();
         String query = "";
         try{

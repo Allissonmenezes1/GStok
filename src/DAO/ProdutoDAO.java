@@ -9,10 +9,11 @@ import util.Conexao;
 public class ProdutoDAO {
     
     public boolean inserirProduto(Produto produto, String cpfFuncionario){
-        Conexao conn = new Conexao();
+        Conexao conn = null;
         String sql = "INSERT INTO PRODUTO (NOME, DESCRICAO, COD_BARRAS, PRECO, COD_CATEGORIA, COD_MARCA, QUANTIDADE, LIMITE_MIN, LIMITE_MAX, CPF_GERENTE)"
-                + "(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try{
+            conn = new Conexao();
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
             sttm.setString(1, produto.getNome());
             sttm.setString(2, produto.getDescricao());
@@ -39,9 +40,10 @@ public class ProdutoDAO {
     }
     
     public boolean alterarProduto(Produto produto){
-        Conexao conn = new Conexao();
+        Conexao conn = null;
         String sql = "UPDATE PRODUTO SET PRECO = ?, QUANTIDADE = ?, LIMITE_MAX = ?, LIMITE_MIN = ? WHERE COD_BARRAS = ?";
          try{
+            conn = new Conexao(); 
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
             sttm.setDouble(1, produto.getPreco());
             sttm.setInt(2, produto.getQuantidade());
@@ -60,11 +62,12 @@ public class ProdutoDAO {
     }
     
     public Produto buscarProduto(String codBarras){
-        Conexao conn = new Conexao();
+        Conexao conn = null;
         String sql = "SELECT P.NOME, P.DESCRICAO, P.COD_BARRAS, P.PRECO, C.DESC_CATEGORIA, M.DESC_MARCA, P.QUANTIDADE, P.LIMITE_MIN, P.LIMITE_MAX "
                 + "FROM PRODUTO as P INNER JOIN MARCA as M ON P.COD_MARCA = M.COD_MARCA INNER JOIN CATEGORIA as C ON P.COD_CATEGORIA = C.COD_CATEGORIA "
                 + "WHERE P.COD_BARRAS = ?";
         try{
+            conn = new Conexao();
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
             sttm.setString(1, codBarras);;
             boolean result = sttm.execute();
@@ -86,12 +89,13 @@ public class ProdutoDAO {
     }
     
     public ArrayList<Produto> buscarProduto(){
-        Conexao conn = new Conexao();
+        Conexao conn = null;
         ArrayList<Produto> p = new ArrayList<Produto>();
         String sql = "SELECT P.NOME, P.DESCRICAO, P.COD_BARRAS, P.PRECO, C.DESC_CATEGORIA, M.DESC_MARCA, P.QUANTIDADE, P.LIMITE_MIN, P.LIMITE_MAX "
                 + "FROM PRODUTO as P INNER JOIN MARCA as M ON P.COD_MARCA = M.COD_MARCA INNER JOIN CATEGORIA as C ON P.COD_CATEGORIA = C.COD_CATEGORIA"
                 + " ORDER BY P.NOME";
         try{
+            conn = new Conexao();
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
             boolean result = sttm.execute();
             if(!result)
@@ -110,9 +114,10 @@ public class ProdutoDAO {
     }
     
     public boolean inserirMarca(String marca){
-        Conexao conn = new Conexao();
+        Conexao conn = null;
         String sql = "INSERT INTO MARCA (DESC_MARCA) VALUES (?)";
         try{
+            conn = new Conexao();
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
             sttm.setString(1, marca);
             sttm.execute();
@@ -126,9 +131,10 @@ public class ProdutoDAO {
     }
 
     public int buscarCodMarca(String marca){
-        Conexao conn = new Conexao();
+        Conexao conn = null;
         String sql = "SELECT COD_MARCA FROM MARCA WHERE DESC_MARCA = ?";
         try{
+            conn = new Conexao();
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
             sttm.setString(1, marca);
             boolean result = sttm.execute();
@@ -146,9 +152,10 @@ public class ProdutoDAO {
     }
     
     public String buscarMarca(int codMarca){
-        Conexao conn = new Conexao();
+        Conexao conn = null;
         String sql = "SELECT DESC_MARCA FROM MARCA WHERE COD_MARCA = ?";
         try{
+            conn = new Conexao();
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
             sttm.setInt(1, codMarca);
             boolean result = sttm.execute();
@@ -166,10 +173,11 @@ public class ProdutoDAO {
     }
     
     public ArrayList<String> buscarMarca(){
-        Conexao conn = new Conexao();
+        Conexao conn = null;
         ArrayList<String> marca = new ArrayList<String>();
         String sql = "SELECT DESC_MARCA FROM MARCA";
         try{
+            conn = new Conexao();
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
             boolean result = sttm.execute();
             if(!result)
@@ -187,9 +195,10 @@ public class ProdutoDAO {
     }
     
     public boolean inserirCategoria(String categoria){
-        Conexao conn = new Conexao();
+        Conexao conn = null;
         String sql = "INSERT INTO CATEGORIA (DESC_CATEGORIA) VALUES (?)";
         try{
+            conn = new Conexao();
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
             sttm.setString(1, categoria);
             sttm.execute();
@@ -203,9 +212,10 @@ public class ProdutoDAO {
     }
     
     public int buscarCodCategoria(String categoria){
-        Conexao conn = new Conexao();
+        Conexao conn = null;
         String sql = "SELECT COD_CATEGORIA FROM CATEGORIA WHERE DESC_CATEGORIA = ?";
         try{
+            conn = new Conexao();
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
             sttm.setString(1, categoria);
             boolean result = sttm.execute();
@@ -223,9 +233,10 @@ public class ProdutoDAO {
     }
     
     public String buscarCategoria(int codCategoria){
-        Conexao conn = new Conexao();
+        Conexao conn = null;
         String sql = "SELECT DESC_CATEGORIA FROM CATEGORIA WHERE COD_CATEGORIA = ?";
         try{
+            conn = new Conexao();
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
             sttm.setInt(1, codCategoria);
             boolean result = sttm.execute();
@@ -243,10 +254,11 @@ public class ProdutoDAO {
     }
     
     public ArrayList<String> buscarCategoria(){
-        Conexao conn = new Conexao();
+        Conexao conn = null;
         ArrayList<String> categoria = new ArrayList<String>();
         String sql = "SELECT DESC_CATEGORIA FROM CATEGORIA";
         try{
+            conn = new Conexao();
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
             boolean result = sttm.execute();
             if(!result)

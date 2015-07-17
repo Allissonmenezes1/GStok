@@ -8,9 +8,10 @@ import util.Conexao;
 public class FuncionarioDAO {
     
     public boolean inserirFuncionario(Funcionario funcionario){
-        Conexao conn = new Conexao();
+        Conexao conn = null;
         String sql = "INSERT INTO FUNCIONARIO(CPF, NOME, SENHA, GERENTE) VALUES (?, ?, ?, ?)";
         try{
+            conn = new Conexao();
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
             sttm.setString(1, funcionario.getCPF());
             sttm.setString(2, funcionario.getNome());
@@ -28,9 +29,10 @@ public class FuncionarioDAO {
     }
     
     public Funcionario getFuncionario(String cpf){
-        Conexao conn = new Conexao();
+        Conexao conn = null;
         String sql = "SELECT * FROM FUNCIONARIO WHERE CPF = ?";
         try{
+            conn = new Conexao();
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
             sttm.setString(1, cpf);
             boolean result = sttm.execute();

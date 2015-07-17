@@ -20,7 +20,7 @@ public class VendaBO {
     }
     
     public boolean realizarVenda(ArrayList<Produto> produto, String cpfFunc, String cpfCliente){
-        Conexao conn = new Conexao();
+        Conexao conn = null;
         boolean verifica = true;
         ProdutoDAO pDAO = new ProdutoDAO();
         
@@ -30,6 +30,7 @@ public class VendaBO {
         }
         
         try {
+            conn = new Conexao();
             conn.getConexao().setAutoCommit(false);
             conn.savepoint();
             
@@ -37,7 +38,7 @@ public class VendaBO {
             
             for(int i = 0; i < produto.size(); i++){
                 verifica = v.inserirVenda(produto.get(i).getCodBarras(), cpfFunc, cpfCliente,
-                        produto.get(i).getQuantidade(), id);
+                        produto.get(i).getQuantidade(), id, conn);
                 if(!verifica)
                     throw new Exception("Erro ao inserir venda");
             }
@@ -47,6 +48,7 @@ public class VendaBO {
         } catch (SQLException ex) {
             conn.rollback();
             Logger.getLogger(VendaBO.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
             return false;
         }catch (Exception e){
             conn.rollback();

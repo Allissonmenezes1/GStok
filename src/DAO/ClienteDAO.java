@@ -8,9 +8,10 @@ import util.Conexao;
 public class ClienteDAO {
     
     public boolean inserirCliente(Cliente cliente){
-        Conexao conn = new Conexao();
+        Conexao conn = null;
         String sql = "INSERT INTO CLIENTE (CPF, NOME, TELEFONE) VALUES (?, ?, ?)";
         try{
+            conn = new Conexao();
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
             sttm.setString(1, cliente.getCPF());
             sttm.setString(2, cliente.getNome());
@@ -26,9 +27,10 @@ public class ClienteDAO {
     }
     
     public Cliente getCliente(String cpf){
-        Conexao conn = new Conexao();
+        Conexao conn = null;
         String sql = "SELECT * FROM CLIENTE WHERE CPF = ?";
         try{
+            conn = new Conexao();
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
             sttm.setString(1, cpf);;
             boolean result = sttm.execute();
