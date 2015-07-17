@@ -1,5 +1,6 @@
 package GUI;
 
+import BO.ProdutoBO;
 import PO.Funcionario;
 import javax.swing.JOptionPane;
 
@@ -197,9 +198,9 @@ public class HomeGerente extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cadastroFuncionarioButton))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(cadastrarCategoriaButton))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cadastrarCategoriaButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel10))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cadastrarMarcaButton)
@@ -264,7 +265,11 @@ public class HomeGerente extends javax.swing.JFrame {
     private void cadastrarCategoriaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarCategoriaButtonActionPerformed
         String categoria = null;
         categoria = JOptionPane.showInputDialog(this, "Informe nova categoria");
-        //CHAMAR FUNÇÃO PARA CADASTRO DE CATEGORIA
+        ProdutoBO p = new ProdutoBO();
+        if(p.cadastrarCategoria(categoria))
+            JOptionPane.showMessageDialog(this, "Marca cadastrada!");
+        else
+            JOptionPane.showMessageDialog(this,"Erro no cadastro", "", ERROR);
     }//GEN-LAST:event_cadastrarCategoriaButtonActionPerformed
 
     private void cadastrarMarcaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarMarcaButtonActionPerformed
