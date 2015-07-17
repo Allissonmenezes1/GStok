@@ -8,7 +8,7 @@ import util.Conexao;
 
 public class VendaDAO {
     
-    public boolean inserirVenda(String codBarras, String cpfFunc, String cpfCliente, int quantidade, String idVenda, Conexao conn){
+    public boolean inserirVenda(String codBarras, String cpfFunc, String cpfCliente, int quantidade, String idVenda, double preco, Conexao conn){
         ProdutoDAO pDAO = new ProdutoDAO();
         String query = "";
         try{
@@ -23,14 +23,15 @@ public class VendaDAO {
             rs.next();
             int idProduto = rs.getInt("ID");
             
-            query = "INSERT INTO VENDA (ID, ID_PRODUTO, CPF_FUNC, CPF_CLIENTE, QUANTIDADE)"
-                    + " VALUES (?, ?, ?, ?, ?)";
+            query = "INSERT INTO VENDA (ID, ID_PRODUTO, CPF_FUNC, CPF_CLIENTE, QUANTIDADE, PRECO_UNITARIO)"
+                    + " VALUES (?, ?, ?, ?, ?, ?)";
             sttm = conn.getConexao().prepareStatement(query);
             sttm.setString(1, idVenda);
             sttm.setInt(2, idProduto);
             sttm.setString(3, cpfFunc);
             sttm.setString(4, cpfCliente);
             sttm.setInt(5, quantidade);
+            sttm.setDouble(6, preco);
             sttm.execute();
             
             Produto p =  pDAO.buscarProduto(codBarras);
