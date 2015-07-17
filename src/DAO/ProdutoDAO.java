@@ -49,11 +49,13 @@ public class ProdutoDAO {
             boolean result = sttm.execute();
             if(!result)
                 return null;
-            ResultSet rs = sttm.executeQuery();
-            rs.next();
-            Produto p = new Produto(rs.getString("DESC_MARCA"), rs.getString("DESC_CATEGORIA"), rs.getString("COD_BARRAS"), rs.getInt("QUANTIDADE"),
-            rs.getInt("LIMITE_MAX"), rs.getInt("LIMITE_MIN"), rs.getString("NOME"), rs.getString("DESCRICAO"), rs.getDouble("PRECO"));
-            return p;
+            ResultSet rs = sttm.getResultSet();
+            if(rs.next()){
+                Produto p = new Produto(rs.getString("DESC_MARCA"), rs.getString("DESC_CATEGORIA"), rs.getString("COD_BARRAS"), rs.getInt("QUANTIDADE"),
+                rs.getInt("LIMITE_MAX"), rs.getInt("LIMITE_MIN"), rs.getString("NOME"), rs.getString("DESCRICAO"), rs.getDouble("PRECO"));
+                return p;
+            }
+            return null;
         }catch(Exception e){
             e.printStackTrace();
             return null;
