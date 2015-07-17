@@ -60,4 +60,12 @@ public class Conexao {
             Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void commit(){
+        try {
+            this.conn.commit();
+        } catch (SQLException ex) {
+            Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
