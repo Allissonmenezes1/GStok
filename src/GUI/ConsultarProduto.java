@@ -8,6 +8,7 @@ package GUI;
 import DAO.ProdutoDAO;
 import PO.Funcionario;
 import PO.Produto;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -24,6 +25,18 @@ public class ConsultarProduto extends javax.swing.JFrame {
         
     }
 
+    private boolean verificaValores(){
+        if(Integer.parseInt(quantidadeProdutoTextField.getText()) < 0)
+            return false;
+        if(Integer.parseInt(precoProdutoTextField.getText()) <= 0)
+            return false;
+        if(Integer.parseInt(limiteMaxProdutoTextField.getText()) <= 0)
+            return false;
+        if(Integer.parseInt(limiteMinProdutoTextField.getText()) < 0)
+            return false;
+        return true;
+    }
+    
     public void setFuncionario(Funcionario f){
         this.func = new Funcionario(f);
         if(!f.getGerente()){
@@ -267,12 +280,21 @@ public class ConsultarProduto extends javax.swing.JFrame {
 
     private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
         HomeGerente home = new HomeGerente();
+        home.setFuncionario(this.func);
         home.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_voltarButtonActionPerformed
 
     private void salvarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarButtonActionPerformed
-        // TODO add your handling code here:
+        if(verificaValores()){
+            Produto p = new Produto(marcaProdutoTextField.getText(), categoriaProdutoTextField.getText(), codBarrasTextField.getText(), Integer.parseInt(quantidadeProdutoTextField.getText()), Integer.parseInt(limiteMaxProdutoTextField.getText()), Integer.parseInt(limiteMinProdutoTextField.getText()), nomeProdutoTextField.getText(), Double.parseDouble(precoProdutoTextField.getText()));
+            if(new ProdutoDAO().alterarProduto(p))
+                JOptionPane.showMessageDialog(this, "Alterações Salvas!", null, JOptionPane.PLAIN_MESSAGE);
+            else
+                JOptionPane.showMessageDialog(this, "Erro ao Salvar Alterações!", null, JOptionPane.ERROR_MESSAGE);
+        }
+        else
+            JOptionPane.showMessageDialog(this, "Valores Inválidos!", null, JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_salvarButtonActionPerformed
 
     private void codBarrasTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codBarrasTextFieldKeyReleased
@@ -281,13 +303,12 @@ public class ConsultarProduto extends javax.swing.JFrame {
             nomeProdutoTextField.setText(p.getNome());
             descricaoProdutoTextField.setText(p.getDescricao());
             marcaProdutoTextField.setText(p.getCodMarca());
-            precoProdutoTextField.setText("R$ "+p.getPreco());
+            precoProdutoTextField.setText(""+p.getPreco());
             categoriaProdutoTextField.setText(p.getCategoria());
             quantidadeProdutoTextField.setText(Integer.toString(p.getQuantidade()));
             limiteMaxProdutoTextField.setText(Integer.toString(p.getLimiteMaximo()));
             limiteMinProdutoTextField.setText(Integer.toString(p.getLimiteMinimo()));
             salvarButton.setEnabled(true);
-            
         }
         else{
             nomeProdutoTextField.setText("");
