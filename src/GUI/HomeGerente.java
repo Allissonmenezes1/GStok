@@ -1,12 +1,15 @@
 package GUI;
 
+import PO.Funcionario;
 import javax.swing.JOptionPane;
 
 public class HomeGerente extends javax.swing.JFrame {
 
+    private Funcionario func;
 
     public HomeGerente() {
         initComponents();
+        this.func = null;
     }
     
     @SuppressWarnings("unchecked")
@@ -263,6 +266,10 @@ public class HomeGerente extends javax.swing.JFrame {
        //CHAMAR FUNÇÃO PARA CADASTRO DE MARCA
     }//GEN-LAST:event_cadastrarMarcaButtonActionPerformed
 
+    public void setFuncionario(Funcionario f){
+        this.func = new Funcionario(f);
+    }
+    
     /**
      * @param args the command line arguments
      */
