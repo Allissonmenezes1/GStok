@@ -62,6 +62,29 @@ public class ProdutoDAO {
         }
     }
     
+    public ArrayList<Produto> buscarProduto(){
+        Conexao conn = new Conexao();
+        ArrayList<Produto> p = new ArrayList<Produto>();
+        String sql = "SELECT P.NOME, P.DESCRICAO, P.COD_BARRAS, P.PRECO, C.DESC_CATEGORIA, M.DESC_MARCA, P.QUANTIDADE, P.LIMITE_MIN, P.LIMITE_MAX "
+                + "FROM PRODUTO as P INNER JOIN MARCA as M ON P.COD_MARCA = M.COD_MARCA INNER JOIN CATEGORIA as C ON P.COD_CATEGORIA = C.COD_CATEGORIA ";
+        try{
+            PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
+            boolean result = sttm.execute();
+            if(!result)
+                return null;
+            ResultSet rs = sttm.executeQuery();
+            while(rs.next())
+            p.add(new Produto(rs.getString("DESC_MARCA"), rs.getString("DESC_CATEGORIA"), rs.getInt("COD_BARRAS"), rs.getInt("QUANTIDADE"),
+            rs.getInt("LIMITE_MAX"), rs.getInt("LIMITE_MIN"), rs.getString("NOME"), rs.getString("DESCRICAO"), rs.getDouble("PRECO")));
+            return p;
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }finally{
+            conn.fecharConexao();
+        }
+    }
+    
     public boolean inserirMarca(String marca){
         Conexao conn = new Conexao();
         String sql = "INSERT INTO MARCA (DESC_MARCA) VALUES (?)";
