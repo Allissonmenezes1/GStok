@@ -1,13 +1,13 @@
 package GUI;
 
+import PO.Funcionario;
+
 
 public class Login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
     public Login() {
         initComponents();
+        func = null;
     }
 
     
@@ -97,6 +97,7 @@ public class Login extends javax.swing.JFrame {
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
        HomeFuncionario home = new HomeFuncionario();
+       home.setFuncionario(func);
        home.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_okActionPerformed
@@ -138,6 +139,7 @@ public class Login extends javax.swing.JFrame {
         });
     }
 
+    private Funcionario func;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

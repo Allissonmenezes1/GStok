@@ -1,5 +1,7 @@
 package GUI;
 
+import PO.Funcionario;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -17,6 +19,7 @@ public class HomeFuncionario extends javax.swing.JFrame {
      */
     public HomeFuncionario() {
         initComponents();
+        func = null;
     }
 
     /**
@@ -98,6 +101,9 @@ public class HomeFuncionario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_vendaButtonActionPerformed
 
+    public void setFuncionario(Funcionario f){
+        this.func = new Funcionario(f);
+    }
     /**
      * @param args the command line arguments
      */
@@ -133,6 +139,7 @@ public class HomeFuncionario extends javax.swing.JFrame {
         });
     }
 
+    private Funcionario func;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buscaButton;
     private javax.swing.JLabel jLabel1;
