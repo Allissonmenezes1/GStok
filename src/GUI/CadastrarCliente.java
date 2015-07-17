@@ -128,7 +128,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
         if(c.cadastrarCliente(new Cliente(nome.getText(), cpf.getText(),telefone.getText())))
             JOptionPane.showMessageDialog(this, "Cliente cadastrado");
         else
-            JOptionPane.showMessageDialog(this, "Cliente cadastrado","ERRO",ERROR);
+            JOptionPane.showMessageDialog(this, "Cliente não cadastrado","ERRO",ERROR);
     }//GEN-LAST:event_okButtonActionPerformed
 
     /**
