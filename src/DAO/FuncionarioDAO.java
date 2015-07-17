@@ -29,19 +29,21 @@ public class FuncionarioDAO {
     
     public Funcionario getFuncionario(String cpf){
         Conexao conn = new Conexao();
-        String sql = "SELECT * FROM CLIENTE WHERE CPF = ?";
+        String sql = "SELECT * FROM FUNCIONARIO WHERE CPF = ?";
         try{
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
-            sttm.setString(1, cpf);;
+            sttm.setString(1, cpf);
             boolean result = sttm.execute();
             if(!result)
                 return null;
-            ResultSet rs = sttm.executeQuery();
-            rs.next();
-            Funcionario func = new Funcionario(rs.getString("NOME"), rs.getString("CPF"), rs.getString("SENHA"));
-            boolean gerente = (rs.getInt("GERENTE") == 1)? true : false;
-            func.setGerente(gerente);
-            return func;
+            ResultSet rs = sttm.getResultSet();
+            if(rs.next()){
+                Funcionario func = new Funcionario(rs.getString("NOME"), rs.getString("CPF"), rs.getString("SENHA"));
+                boolean gerente = (rs.getInt("GERENTE") == 1)? true : false;
+                func.setGerente(gerente);
+                return func;
+            }
+            return null;
         }catch(Exception e){
             e.printStackTrace();
             return null;
