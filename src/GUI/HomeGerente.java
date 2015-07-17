@@ -269,7 +269,7 @@ public class HomeGerente extends javax.swing.JFrame {
         if(p.cadastrarCategoria(categoria))
             JOptionPane.showMessageDialog(this, "Marca cadastrada!");
         else
-            JOptionPane.showMessageDialog(this,"Erro no cadastro", "", ERROR);
+            JOptionPane.showMessageDialog(this,"Erro no cadastro", "", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_cadastrarCategoriaButtonActionPerformed
 
     private void cadastrarMarcaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarMarcaButtonActionPerformed
