@@ -66,7 +66,8 @@ public class ProdutoDAO {
         Conexao conn = new Conexao();
         ArrayList<Produto> p = new ArrayList<Produto>();
         String sql = "SELECT P.NOME, P.DESCRICAO, P.COD_BARRAS, P.PRECO, C.DESC_CATEGORIA, M.DESC_MARCA, P.QUANTIDADE, P.LIMITE_MIN, P.LIMITE_MAX "
-                + "FROM PRODUTO as P INNER JOIN MARCA as M ON P.COD_MARCA = M.COD_MARCA INNER JOIN CATEGORIA as C ON P.COD_CATEGORIA = C.COD_CATEGORIA ";
+                + "FROM PRODUTO as P INNER JOIN MARCA as M ON P.COD_MARCA = M.COD_MARCA INNER JOIN CATEGORIA as C ON P.COD_CATEGORIA = C.COD_CATEGORIA"
+                + " ORDER BY P.NOME";
         try{
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
             boolean result = sttm.execute();
