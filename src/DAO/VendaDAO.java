@@ -44,8 +44,6 @@ public class VendaDAO {
         }catch(Exception e){
             e.printStackTrace();
             return false;
-        }finally{
-            conn.fecharConexao();
         }
     }
     
