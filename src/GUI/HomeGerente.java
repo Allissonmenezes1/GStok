@@ -50,7 +50,7 @@ public class HomeGerente extends javax.swing.JFrame {
         jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel4.setText("Vender Produto");
+        jLabel4.setText("Registrar Venda");
         jLabel4.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), null));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
