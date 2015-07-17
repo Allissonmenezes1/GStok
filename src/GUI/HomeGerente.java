@@ -85,6 +85,11 @@ public class HomeGerente extends javax.swing.JFrame {
         });
 
         sair.setText("sair");
+        sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel7.setText("Cadastrar Cliente");
@@ -265,6 +270,12 @@ public class HomeGerente extends javax.swing.JFrame {
        marca = JOptionPane.showInputDialog(this, "Informe o nome da marca");
        //CHAMAR FUNÇÃO PARA CADASTRO DE MARCA
     }//GEN-LAST:event_cadastrarMarcaButtonActionPerformed
+
+    private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
+        Login login = new Login();
+        login.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_sairActionPerformed
 
     public void setFuncionario(Funcionario f){
         this.func = new Funcionario(f);

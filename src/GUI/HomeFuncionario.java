@@ -55,6 +55,11 @@ public class HomeFuncionario extends javax.swing.JFrame {
         });
 
         sair.setText("sair");
+        sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sairActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("Bem-vindo");
@@ -100,6 +105,12 @@ public class HomeFuncionario extends javax.swing.JFrame {
     private void vendaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendaButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_vendaButtonActionPerformed
+
+    private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
+        Login login = new Login();
+        login.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_sairActionPerformed
 
     public void setFuncionario(Funcionario f){
         this.func = new Funcionario(f);
