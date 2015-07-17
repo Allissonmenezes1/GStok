@@ -19,7 +19,7 @@ public class HomeFuncionario extends javax.swing.JFrame {
      */
     public HomeFuncionario() {
         initComponents();
-        func = null;
+        this.func = null;
     }
 
     /**
@@ -106,7 +106,10 @@ public class HomeFuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_buscaButtonActionPerformed
 
     private void vendaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendaButtonActionPerformed
-        // TODO add your handling code here:
+        CadastrarVenda frame = new CadastrarVenda();
+        frame.setFuncionario(this.func);
+        frame.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_vendaButtonActionPerformed
 
     private void sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sairActionPerformed
