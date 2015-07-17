@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import PO.Funcionario;
+
 /**
  *
  * @author a
@@ -316,6 +318,9 @@ public class CadastrarVenda extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_subtotalTextFieldActionPerformed
 
+    public void setFuncionario(Funcionario f){
+        this.func = new Funcionario(f);
+    }
     /**
      * @param args the command line arguments
      */
@@ -351,6 +356,7 @@ public class CadastrarVenda extends javax.swing.JFrame {
         });
     }
 
+    private Funcionario func;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton adicionarProdutoButton;
     private javax.swing.JButton cancelaButton;
