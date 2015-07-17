@@ -57,7 +57,7 @@ public class RelatorioDeVendas extends javax.swing.JFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Qtd. Vendidos", "Valor Total", "Cód.", "Nome", "Descrição"
+                "Cód.", "Nome", "Descrição", "Unidades Vendidas", "Valor Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -80,14 +80,11 @@ public class RelatorioDeVendas extends javax.swing.JFrame {
         if (maisVendidosTable.getColumnModel().getColumnCount() > 0) {
             maisVendidosTable.getColumnModel().getColumn(0).setResizable(false);
             maisVendidosTable.getColumnModel().getColumn(0).setPreferredWidth(100);
-            maisVendidosTable.getColumnModel().getColumn(0).setHeaderValue("Data da Compra");
-            maisVendidosTable.getColumnModel().getColumn(1).setResizable(false);
-            maisVendidosTable.getColumnModel().getColumn(1).setPreferredWidth(100);
-            maisVendidosTable.getColumnModel().getColumn(2).setResizable(false);
-            maisVendidosTable.getColumnModel().getColumn(2).setPreferredWidth(100);
-            maisVendidosTable.getColumnModel().getColumn(3).setResizable(false);
-            maisVendidosTable.getColumnModel().getColumn(4).setMinWidth(200);
-            maisVendidosTable.getColumnModel().getColumn(4).setHeaderValue("Descrição");
+            maisVendidosTable.getColumnModel().getColumn(1).setMinWidth(200);
+            maisVendidosTable.getColumnModel().getColumn(2).setMinWidth(200);
+            maisVendidosTable.getColumnModel().getColumn(3).setPreferredWidth(100);
+            maisVendidosTable.getColumnModel().getColumn(4).setResizable(false);
+            maisVendidosTable.getColumnModel().getColumn(4).setPreferredWidth(100);
         }
 
         javax.swing.GroupLayout maisVendidosPanelLayout = new javax.swing.GroupLayout(maisVendidosPanel);
