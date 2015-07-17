@@ -28,7 +28,7 @@ public class ConsultarProduto extends javax.swing.JFrame {
     private boolean verificaValores(){
         if(Integer.parseInt(quantidadeProdutoTextField.getText()) < 0)
             return false;
-        if(Integer.parseInt(precoProdutoTextField.getText()) <= 0)
+        if(Double.parseDouble(precoProdutoTextField.getText()) <= 0)
             return false;
         if(Integer.parseInt(limiteMaxProdutoTextField.getText()) <= 0)
             return false;
