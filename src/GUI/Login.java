@@ -1,6 +1,9 @@
 package GUI;
 
+import BO.FuncionarioBO;
 import PO.Funcionario;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 
 public class Login extends javax.swing.JFrame {
@@ -10,6 +13,25 @@ public class Login extends javax.swing.JFrame {
         func = null;
     }
 
+    private void logar(){
+        this.func = new FuncionarioBO().login(login.getText(), new String(senha.getPassword()));
+        if(this.func != null){
+            if(this.func.getGerente()){
+                HomeGerente home = new HomeGerente();
+                home.setFuncionario(func);
+                home.setVisible(true);
+            }
+            else{
+                HomeFuncionario home = new HomeFuncionario();
+                home.setFuncionario(func);
+                home.setVisible(true);
+            }
+            this.setVisible(false);
+        }
+        else
+            JOptionPane.showMessageDialog(this, "CPF ou senha incorretos");
+        
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -34,6 +56,11 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setText("Senha:");
 
         login.setName("login"); // NOI18N
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
 
         ok.setText("OK");
         ok.addActionListener(new java.awt.event.ActionListener() {
@@ -42,7 +69,6 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        senha.setText("jPasswordField1");
         senha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 senhaActionPerformed(evt);
@@ -96,15 +122,16 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
-       HomeFuncionario home = new HomeFuncionario();
-       home.setFuncionario(func);
-       home.setVisible(true);
-       this.setVisible(false);
+       this.logar();
     }//GEN-LAST:event_okActionPerformed
 
     private void senhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_senhaActionPerformed
-        // TODO add your handling code here:
+        this.logar();
     }//GEN-LAST:event_senhaActionPerformed
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        this.logar();
+    }//GEN-LAST:event_loginActionPerformed
 
     
     public static void main(String args[]) {
