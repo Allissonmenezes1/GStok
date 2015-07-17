@@ -11,16 +11,15 @@ import util.Conexao;
 
 public class VendaDAO {
     
-    public boolean inserirVenda(int codBarras, int cpfFunc, int cpfCliente, int quantidade, String idVenda){
+    public boolean inserirVenda(String codBarras, String cpfFunc, String cpfCliente, int quantidade, String idVenda){
         Conexao conn = new Conexao();
         ProdutoDAO pDAO = new ProdutoDAO();
         String query = "";
         try{
-            conn.getConexao().setAutoCommit(false);
             
             query = "SELECT ID FROM PRODUTO WHERE COD_BARRAS = ?";
             PreparedStatement sttm = conn.getConexao().prepareStatement(query);
-            sttm.setInt(1, codBarras);
+            sttm.setString(1, codBarras);
             boolean result = sttm.execute();
             if(!result)
                 return false;
@@ -33,8 +32,8 @@ public class VendaDAO {
             sttm = conn.getConexao().prepareStatement(query);
             sttm.setString(1, idVenda);
             sttm.setInt(2, idProduto);
-            sttm.setInt(3, cpfFunc);
-            sttm.setInt(4, cpfCliente);
+            sttm.setString(3, cpfFunc);
+            sttm.setString(4, cpfCliente);
             sttm.setInt(5, quantidade);
             sttm.execute();
             

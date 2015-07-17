@@ -2,11 +2,11 @@ package PO;
 
 
 public class Produto {
-	private int codBarras, quantidade, limiteMax, limiteMin; 
-	private String nome, descricao, marca, categoria; 
+	private int quantidade, limiteMax, limiteMin; 
+	private String codBarras, nome, descricao, marca, categoria; 
 	private double preco;
 	
-	public Produto(String marca, String categoria, int barras, int qtd, int limMax, int limMin, 
+	public Produto(String marca, String categoria, String barras, int qtd, int limMax, int limMin, 
 					String nome, String descricao, double preco){
 		this.marca = marca;
 		this.categoria = categoria;
@@ -19,7 +19,7 @@ public class Produto {
 		this.preco = preco;
 	}
 	
-	public Produto(String marca, String categoria, int barras, int qtd, int limMax, int limMin, 
+	public Produto(String marca, String categoria, String barras, int qtd, int limMax, int limMin, 
 			String nome,  double preco){
 		this.marca = marca;
 		this.categoria = categoria;
@@ -65,7 +65,7 @@ public class Produto {
 		return this.nome;
 	}
 	
-	public int getCodBarras(){
+	public String getCodBarras(){
 		return this.codBarras;
 	}
 	

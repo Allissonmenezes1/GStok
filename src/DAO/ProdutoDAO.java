@@ -16,7 +16,7 @@ public class ProdutoDAO {
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
             sttm.setString(1, produto.getNome());
             sttm.setString(2, produto.getDescricao());
-            sttm.setInt(3, produto.getCodBarras());
+            sttm.setString(3, produto.getCodBarras());
             sttm.setDouble(4, produto.getPreco());
             if(this.buscarCodCategoria(produto.getCategoria()) == -1)
                 throw new Exception("Categoria inexistente");
@@ -38,20 +38,20 @@ public class ProdutoDAO {
         }  
     }
     
-    public Produto buscarProduto(int codBarras){
+    public Produto buscarProduto(String codBarras){
         Conexao conn = new Conexao();
         String sql = "SELECT P.NOME, P.DESCRICAO, P.COD_BARRAS, P.PRECO, C.DESC_CATEGORIA, M.DESC_MARCA, P.QUANTIDADE, P.LIMITE_MIN, P.LIMITE_MAX "
                 + "FROM PRODUTO as P INNER JOIN MARCA as M ON P.COD_MARCA = M.COD_MARCA INNER JOIN CATEGORIA as C ON P.COD_CATEGORIA = C.COD_CATEGORIA "
                 + "WHERE P.COD_BARRAS = ?";
         try{
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
-            sttm.setInt(1, codBarras);;
+            sttm.setString(1, codBarras);;
             boolean result = sttm.execute();
             if(!result)
                 return null;
             ResultSet rs = sttm.executeQuery();
             rs.next();
-            Produto p = new Produto(rs.getString("DESC_MARCA"), rs.getString("DESC_CATEGORIA"), rs.getInt("COD_BARRAS"), rs.getInt("QUANTIDADE"),
+            Produto p = new Produto(rs.getString("DESC_MARCA"), rs.getString("DESC_CATEGORIA"), rs.getString("COD_BARRAS"), rs.getInt("QUANTIDADE"),
             rs.getInt("LIMITE_MAX"), rs.getInt("LIMITE_MIN"), rs.getString("NOME"), rs.getString("DESCRICAO"), rs.getDouble("PRECO"));
             return p;
         }catch(Exception e){
@@ -75,7 +75,7 @@ public class ProdutoDAO {
                 return null;
             ResultSet rs = sttm.executeQuery();
             while(rs.next())
-            p.add(new Produto(rs.getString("DESC_MARCA"), rs.getString("DESC_CATEGORIA"), rs.getInt("COD_BARRAS"), rs.getInt("QUANTIDADE"),
+            p.add(new Produto(rs.getString("DESC_MARCA"), rs.getString("DESC_CATEGORIA"), rs.getString("COD_BARRAS"), rs.getInt("QUANTIDADE"),
             rs.getInt("LIMITE_MAX"), rs.getInt("LIMITE_MIN"), rs.getString("NOME"), rs.getString("DESCRICAO"), rs.getDouble("PRECO")));
             return p;
         }catch(Exception e){
