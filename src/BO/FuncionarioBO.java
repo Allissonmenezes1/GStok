@@ -22,4 +22,13 @@ public class FuncionarioBO {
             return null;
         
     }
+    
+    public boolean cadastrarFuncionario(Funcionario func){
+        
+        if(f.getFuncionario(func.getCPF()) != null)
+            return false;
+        
+        return f.inserirFuncionario(func);
+    
+    }
 }
