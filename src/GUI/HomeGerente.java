@@ -253,8 +253,9 @@ public class HomeGerente extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastroClienteButtonActionPerformed
 
     private void buscaProdutoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaProdutoButtonActionPerformed
-        ConsultarProduto consulta = new ConsultarProduto();
-        consulta.setVisible(true);
+        ConsultarProduto frame = new ConsultarProduto();
+        frame.setFuncionario(this.func);
+        frame.setVisible(true);
         this.setVisible(false);
         
     }//GEN-LAST:event_buscaProdutoButtonActionPerformed

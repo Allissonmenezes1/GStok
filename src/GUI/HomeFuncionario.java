@@ -99,7 +99,10 @@ public class HomeFuncionario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaButtonActionPerformed
-        // TODO add your handling code here:
+        ConsultarProduto frame = new ConsultarProduto();
+        frame.setFuncionario(this.func);
+        frame.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_buscaButtonActionPerformed
 
     private void vendaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendaButtonActionPerformed
