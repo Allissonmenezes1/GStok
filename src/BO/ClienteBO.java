@@ -1,14 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package BO;
 
-/**
- *
- * @author Juliana
- */
+import DAO.ClienteDAO;
+import PO.Cliente;
+
 public class ClienteBO {
+    private ClienteDAO c;
     
+    public ClienteBO(){
+        c = new ClienteDAO();
+    }
+    
+    public boolean cadastrarCliente(Cliente cliente){
+    
+        if(c.getCliente(cliente.getCPF()) != null)
+            return false;
+        
+        return c.inserirCliente(cliente);
+    }
 }
