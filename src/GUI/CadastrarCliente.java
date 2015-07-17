@@ -2,6 +2,7 @@ package GUI;
 
 import BO.ClienteBO;
 import PO.Cliente;
+import PO.Funcionario;
 import javax.swing.JOptionPane;
 
 public class CadastrarCliente extends javax.swing.JFrame {
@@ -9,6 +10,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
     
     public CadastrarCliente() {
         initComponents();
+        this.func = null;
     }
 
     @SuppressWarnings("unchecked")
@@ -119,6 +121,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
 
     private void voltarButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButton1ActionPerformed
         HomeGerente home = new HomeGerente();
+        home.setFuncionario(this.func);
         home.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_voltarButton1ActionPerformed
@@ -131,6 +134,9 @@ public class CadastrarCliente extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Cliente não cadastrado","ERRO",ERROR);
     }//GEN-LAST:event_okButtonActionPerformed
 
+    public void setFuncionario(Funcionario f){
+        this.func = new Funcionario(f);
+    }
     /**
      * @param args the command line arguments
      */
@@ -166,6 +172,7 @@ public class CadastrarCliente extends javax.swing.JFrame {
         });
     }
 
+    private Funcionario func;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cpf;
     private javax.swing.JLabel jLabel1;

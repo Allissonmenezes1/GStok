@@ -18,6 +18,7 @@ public class CadastrarVenda extends javax.swing.JFrame {
      */
     public CadastrarVenda() {
         initComponents();
+        this.func = null;
     }
 
     /**

@@ -10,6 +10,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
 
     public CadastrarFuncionario() {
         initComponents();
+        this.func = null;
     }
 
     @SuppressWarnings("unchecked")
@@ -142,6 +143,9 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_voltarButton1ActionPerformed
 
+    public void setFuncionario(Funcionario f){
+        this.func = new Funcionario(f);
+    }
     /**
      * @param args the command line arguments
      */
@@ -177,6 +181,7 @@ public class CadastrarFuncionario extends javax.swing.JFrame {
         });
     }
 
+    private Funcionario func;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField cpf;
     private javax.swing.JRadioButton gerente;

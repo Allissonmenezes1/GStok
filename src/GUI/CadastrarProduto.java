@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import PO.Funcionario;
+
 /**
  *
  * @author Juliana
@@ -16,6 +18,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
      */
     public CadastrarProduto() {
         initComponents();
+        this.func = null;
     }
 
     /**
@@ -218,6 +221,9 @@ public class CadastrarProduto extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_voltarButtonActionPerformed
 
+    public void setFuncionario(Funcionario f){
+        this.func = new Funcionario(f);
+    }
     /**
      * @param args the command line arguments
      */
@@ -253,6 +259,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
         });
     }
 
+    private Funcionario func;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox CategoriaComboBox;
     private javax.swing.JTextField codBarras;

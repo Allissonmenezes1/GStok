@@ -147,19 +147,6 @@ public class HomeGerente extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel8)
                     .addComponent(jLabel10))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cadastroProdutoButton)
-                            .addComponent(cadastroFuncionarioButton)
-                            .addComponent(cadastroClienteButton)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(buscaProdutoButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(cadastrarCategoriaButton)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(38, Short.MAX_VALUE)
@@ -177,7 +164,12 @@ public class HomeGerente extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(vendaButton)
                             .addComponent(cadastrarMarcaButton)
-                            .addComponent(relatóriosButton))
+                            .addComponent(relatóriosButton)
+                            .addComponent(cadastrarCategoriaButton)
+                            .addComponent(cadastroFuncionarioButton)
+                            .addComponent(cadastroProdutoButton)
+                            .addComponent(cadastroClienteButton)
+                            .addComponent(buscaProdutoButton))
                         .addGap(75, 75, 75))))
         );
         layout.setVerticalGroup(
@@ -228,26 +220,35 @@ public class HomeGerente extends javax.swing.JFrame {
 
     private void cadastroProdutoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroProdutoButtonActionPerformed
        CadastrarProduto cadastro = new CadastrarProduto();
+       cadastro.setFuncionario(this.func);
        cadastro.setVisible(true);
        this.setVisible(false);
     }//GEN-LAST:event_cadastroProdutoButtonActionPerformed
 
     private void vendaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vendaButtonActionPerformed
-        // TODO add your handling code here:
+        CadastrarVenda cadastro = new CadastrarVenda();
+        cadastro.setFuncionario(this.func);
+        cadastro.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_vendaButtonActionPerformed
 
     private void cadastroFuncionarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroFuncionarioButtonActionPerformed
         CadastrarFuncionario cadastro = new CadastrarFuncionario();
+        cadastro.setFuncionario(this.func);
         cadastro.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_cadastroFuncionarioButtonActionPerformed
 
     private void relatóriosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relatóriosButtonActionPerformed
-        // TODO add your handling code here:
+        RelatorioDeVendas relatorio = new RelatorioDeVendas();
+        relatorio.setFuncionario(this.func);
+        relatorio.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_relatóriosButtonActionPerformed
 
     private void cadastroClienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroClienteButtonActionPerformed
         CadastrarCliente cadastro = new CadastrarCliente();
+        cadastro.setFuncionario(this.func);
         cadastro.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_cadastroClienteButtonActionPerformed

@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import PO.Funcionario;
+
 /**
  *
  * @author alysson
@@ -16,6 +18,7 @@ public class RelatorioDeVendas extends javax.swing.JFrame {
      */
     public RelatorioDeVendas() {
         initComponents();
+        this.func = null;
     }
 
     /**
@@ -253,6 +256,9 @@ public class RelatorioDeVendas extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_voltarButton1ActionPerformed
 
+    public void setFuncionario(Funcionario f){
+        this.func = new Funcionario(f);
+    }
     /**
      * @param args the command line arguments
      */
@@ -288,6 +294,7 @@ public class RelatorioDeVendas extends javax.swing.JFrame {
         });
     }
 
+    private Funcionario func;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel maioresClientesPanel;
