@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class RelatorioDeVendas extends javax.swing.JFrame {
 
-    public RelatorioDeVendas() throws SQLException {
+    public RelatorioDeVendas() {
         initComponents();
         this.func = null;
         preencheMaisVendidos();
@@ -20,7 +20,7 @@ public class RelatorioDeVendas extends javax.swing.JFrame {
         preencheMaioresCompras();
     }
 
-    private void preencheMaisVendidos() throws SQLException{
+    private void preencheMaisVendidos(){
         ArrayList<Object[]> rs = new VendaDAO().maisVendidos();
         
         if(rs != null){
@@ -32,7 +32,7 @@ public class RelatorioDeVendas extends javax.swing.JFrame {
         }
     }
     
-    private void preencheMaioresClientes() throws SQLException{
+    private void preencheMaioresClientes() {
         ArrayList<Object[]> rs = new VendaDAO().maioresClientes();
         
         if(rs != null){
@@ -44,7 +44,7 @@ public class RelatorioDeVendas extends javax.swing.JFrame {
         }
     }
     
-    private void preencheMaioresCompras() throws SQLException{
+    private void preencheMaioresCompras() {
         ArrayList<Object[]> rs = new VendaDAO().maioresCompras();
         
         if(rs != null){
@@ -307,11 +307,9 @@ public class RelatorioDeVendas extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
+                
                     new RelatorioDeVendas().setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(RelatorioDeVendas.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                
             }
         });
     }
