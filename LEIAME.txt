@@ -21,6 +21,7 @@ Usuários:
 	
 	- O Gerente tem maior acesso ao sistema, sendo somente ele que pode cadastrar e alterar todos os dados de produto;
 	- Gerente também cadastra novos usuários;
+	- O Gerente tem acesso a relatórios do sistema;
 	- Funcionário e gerente consultam produto, realizam venda e cadastram novos clientes;
 
 Cadastrando produto:
