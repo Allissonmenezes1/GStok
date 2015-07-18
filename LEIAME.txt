@@ -24,4 +24,8 @@ Usuários:
 	- Funcionário e gerente consultam produto, realizam venda e cadastram novos clientes;
 
 Cadastrando produto:
-	-Para cadastrar um produto é necessário criar antes uma Categoria e uma Marca, disponivel no menu do gerente;
+	- Para cadastrar um produto é necessário criar antes uma Categoria e uma Marca, disponivel no menu do gerente;
+
+Realizando uma venda:
+	- Para realizar uma venda é preciso do produto e cliente cadastrado;
+	- O banco já vem com um cliente exemplo de cpf: 33333333333
