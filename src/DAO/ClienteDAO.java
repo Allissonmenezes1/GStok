@@ -37,9 +37,12 @@ public class ClienteDAO {
             if(!result)
                 return null;
             ResultSet rs = sttm.executeQuery();
-            rs.next();
-            Cliente cliente = new Cliente(rs.getString("NOME"), rs.getString("CPF"), rs.getString("TELEFONE")); 
-            return cliente;
+            if(rs.next()){
+                Cliente cliente = new Cliente(rs.getString("NOME"), rs.getString("CPF"), rs.getString("TELEFONE")); 
+                return cliente;
+            }
+            else
+                return null;
         }catch(Exception e){
             e.printStackTrace();
             return null;

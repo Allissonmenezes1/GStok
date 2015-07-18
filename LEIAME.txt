@@ -1,0 +1,24 @@
+Projeto GStok - Gerenciador de Estoque
+
+Equipe:
+	- Alysson Darllan Santos Ferreira Lopes (alyssonlopes@yahoo.com)
+	- Juliana Rosendo Giacomo (ju.giacomo@gmail.com)
+	
+Banco de dados: MySQL
+	
+Configurando:
+	- Descompactar o arquivo e importar numa IDE java (eclipse/netbeans);
+	- Importar o script de criação do banco no seu MySQL: /bd/gstok.sql
+
+Usuários:
+	- Há dois tipos de usuários: Funcionário e Gerente;
+	- Na criação do banco é criado um de cada usuário para facilitar a experimentação do sistema;
+	- O login é o C.P.F. do usuário;
+	- Gerente:
+		>login: 11111111111		senha: 12345678
+	- Funcionário:
+		>login: 22222222222		senha: 12345678
+	
+	- O Gerente tem maior acesso ao sistema, sendo somente ele que pode cadastrar e alterar todos os dados de produto;
+	- Gerente também cadastra novos usuários;
+	- Funcionário e gerente consultam produto, realizam venda e cadastram novos clientes;
