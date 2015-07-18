@@ -1,4 +1,4 @@
-Projeto GStok - Gerenciador de Estoque
+﻿Projeto GStok - Gerenciador de Estoque
 
 Equipe:
 	- Alysson Darllan Santos Ferreira Lopes (alyssonlopes@yahoo.com)
@@ -22,3 +22,6 @@ Usuários:
 	- O Gerente tem maior acesso ao sistema, sendo somente ele que pode cadastrar e alterar todos os dados de produto;
 	- Gerente também cadastra novos usuários;
 	- Funcionário e gerente consultam produto, realizam venda e cadastram novos clientes;
+
+Cadastrando produto:
+	-Para cadastrar um produto é necessário criar antes uma Categoria e uma Marca, disponivel no menu do gerente;
