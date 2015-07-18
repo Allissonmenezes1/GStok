@@ -241,10 +241,14 @@ public class HomeGerente extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastroFuncionarioButtonActionPerformed
 
     private void relatóriosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_relatóriosButtonActionPerformed
-        RelatorioDeVendas relatorio = new RelatorioDeVendas();
-        relatorio.setFuncionario(this.func);
-        relatorio.setVisible(true);
-        this.setVisible(false);
+        try{
+            RelatorioDeVendas relatorio = new RelatorioDeVendas();
+            relatorio.setFuncionario(this.func);
+            relatorio.setVisible(true);
+            this.setVisible(false);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_relatóriosButtonActionPerformed
 
     private void cadastroClienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroClienteButtonActionPerformed
