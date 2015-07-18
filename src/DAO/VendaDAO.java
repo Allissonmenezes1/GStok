@@ -51,8 +51,9 @@ public class VendaDAO {
     public ArrayList maisVendidos(){
         ArrayList<Object[]> resultados = new ArrayList();
         Conexao conn = null;
-        String sql = "SELECT P.COD_BARRAS, P.NOME, P.DESCRICAO, COUNT(V.ID_PRODUTO) as UNIDADES_VENDIDAS, TRUNCATE(SUM(V.QUANTIDADE*V.PRECO_UNITARIO), 2) as  TOTAL \n"
-           + "FROM VENDA as V INNER JOIN PRODUTO as P ON V.ID_PRODUTO = P.ID GROUP BY (V.ID_PRODUTO) ORDER BY (TOTAL) DESC";
+        String sql = "SELECT P.COD_BARRAS, P.NOME, P.DESCRICAO, SUM(V.QUANTIDADE) as UNIDADES_VENDIDAS, TRUNCATE(SUM(V.QUANTIDADE*V.PRECO_UNITARIO), 2) as  TOTAL \n"
+           + "FROM VENDA as V INNER JOIN PRODUTO as P ON V.ID_PRODUTO = P.ID GROUP BY (V.ID_PRODUTO) "
+                + "ORDER BY (UNIDADES_VENDIDAS) DESC";
         try{
             conn = new Conexao();
             PreparedStatement sttm = conn.getConexao().prepareStatement(sql);
